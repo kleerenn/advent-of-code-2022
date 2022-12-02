@@ -1,5 +1,4 @@
-let input =
-	`
+let input = `
 5916
 7281
 1715
@@ -2264,19 +2263,27 @@ let input =
 3175`.replace(/\n/g, ',')
 
 const result = input.split(',,')
-let caloriesOfElves = []
-
-result.forEach(item => {
-	const calorieArr = item.split(',')
-	caloriesOfElves.push(calorieArr)
+const caloriesOfElves = result.map(item => {
+	return item.split(',')
 })
 
 let totalCaloriesOfElves = []
-for (elves of caloriesOfElves) {
+for (const elves of caloriesOfElves) {
 	let sum = 0
-	for (calories of elves) {
+	for (const calories of elves) {
 		sum += Number(calories)
 	}
 	totalCaloriesOfElves.push(sum)
 }
-const max = Math.max(...totalCaloriesOfElves)
+
+const desc = totalCaloriesOfElves.sort((a, b) => {
+	return b - a
+})
+const max = desc[0]
+
+const rank = 3;
+const topThree = desc.splice(0, rank)
+let sumOfTopThree = 0
+topThree.forEach(item => {
+	sumOfTopThree += item
+})
