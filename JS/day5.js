@@ -32,7 +32,6 @@ arr.forEach((item, index) => {
 	}
 	return obj
 })
-//console.log(obj)
 const inputSteps =
 	`move 7 from 3 to 9
 move 6 from 2 to 1
